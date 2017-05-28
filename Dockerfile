@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install --fix-missing -y \
         vim \
         libopenmpi-dev \
         openmpi-bin \
-        gfortran \
+        gfortran
 
 
 RUN echo "deb http://ftp.de.debian.org/debian jessie-backports main" > /etc/apt/sources.list
