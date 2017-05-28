@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install --fix-missing -y \
         vim \
         libopenmpi-dev \
         openmpi-bin \
-        gfortran
+        gfortran \
+        openjdk-8-jdk
 
 
 
