@@ -8,6 +8,9 @@ RUN apt-get update && apt-get install --fix-missing -y \
         python-nxs \
         ipython \
         vim \
+        libopenmpi-dev \
+        openmpi-bin \
+        gfortran
 
 
 
