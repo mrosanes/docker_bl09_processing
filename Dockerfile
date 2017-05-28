@@ -11,7 +11,12 @@ RUN apt-get update && apt-get install --fix-missing -y \
         libopenmpi-dev \
         openmpi-bin \
         gfortran \
-        openjdk-8-jdk
+
+
+RUN echo "deb http://ftp.de.debian.org/debian jessie-backports main" > /etc/apt/sources.list
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install -y openjdk-8-jdk
 
 
 
