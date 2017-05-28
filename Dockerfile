@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install --fix-missing -y \
 RUN echo "deb http://ftp.de.debian.org/debian jessie-backports main" > /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -y openjdk-8-jdk
+RUN apt-get install -f -y openjdk-8-jdk
 
 
 
