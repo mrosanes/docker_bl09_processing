@@ -39,6 +39,7 @@ RUN apt-get install -y \
         libx11-dev \
         gfortran \
         libfreetype6-dev \
+        wget \
         git
 
 # Install scipion
