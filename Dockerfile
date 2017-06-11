@@ -1,23 +1,10 @@
-FROM mrosanes/docker_bl09_processing:wget_git_nxs_h5py_java8
+FROM mrosanes/docker_bl09_processing:scipion_dependencies_to_compile
 
-# Install dependencies needed by scipion
-RUN apt-get install -y \
-        gcc \
-        g++ \
-        cmake \
-        libxft-dev \
-        libxext-dev \
-        libxml2-dev \
-        libreadline6 \
-        libquadmath0 \
-        libxslt1-dev \
-        libopenmpi-dev \
-        openmpi-bin \
-        libxss-dev \
-        libgsl0-dev \
-        libx11-dev \
-        gfortran \
-        libfreetype6-dev
+# Checkout scipion code and configure scipion
+WORKDIR "/home"
+RUN git clone https://github.com/I2PC/scipion.git
+WORKDIR "/home/scipion"
+RUN ./scipion config
 
 
 
