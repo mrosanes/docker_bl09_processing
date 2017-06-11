@@ -45,13 +45,13 @@ RUN apt-get install -y \
 RUN cd home
 RUN git clone https://github.com/I2PC/scipion.git
 RUN cd scipion
-RUN ./scipion config
-RUN ./scipion install -j 4
-RUN rm -rf sofware/tmp/*
-RUN rm -rf sofware/em/*.tgz
+#RUN ./scipion config
+#RUN ./scipion install -j 4
+#RUN rm -rf sofware/tmp/*
+#RUN rm -rf sofware/em/*.tgz
 
 # Export Path to allow running scipion
-RUN export PATH=$PATH:/home/scipion/
+#RUN export PATH=$PATH:/home/scipion/
 
 
 
