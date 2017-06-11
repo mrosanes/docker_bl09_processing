@@ -24,7 +24,18 @@ RUN apt-get install -y \
         cmake \
         libopenmpi-dev \
         openmpi-bin \
-        gfortran
+        gfortran \
+        libxft-dev \
+        libssl-dev \
+        libxext-dev \
+        libxml2-dev \
+        libreadline6 \
+        libquadmath0 \
+        libxslt1-dev \
+        libxss-dev \
+        libgsl0-dev \
+        libx11-dev \
+        libfreetype6-dev
 
 # Install scipion WORKDIR "/home"
 WORKDIR "/home"
@@ -37,6 +48,5 @@ RUN rm -rf sofware/em/*.tgz
 
 # Export Path to allow running scipion 
 RUN export PATH=$PATH:/home/scipion/
-CMD ["/bin/bash"]
 
 
