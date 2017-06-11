@@ -1,7 +1,42 @@
-FROM mrosanes/docker_bl09_processing:scipion_dependencies_to_compile
- 
-# Checkout scipion code and configure scipion
+FROM debian:stable 
+
+# Install important packages 
+RUN apt-get update && apt-get install --fix-missing -y \ 
+        python-numpy \ 
+        python-h5py \ 
+        python-nxs \ 
+        ipython \ 
+        vim \
+        git \
+        wget \
+        gcc \
+        g++
+
+# Install jdk needed by scipion 
+RUN echo "deb http://ftp.debian.org/debian jessie-backports main" | tee -a /etc/apt/sources.list
+RUN apt-get update
+RUN apt-get install -y -t jessie-backports \
+        openjdk-8-jdk \
+        ca-certificates-java
+
+# Install dependencies needed by scipion 
+RUN apt-get install -y \
+        cmake \
+        libopenmpi-dev \
+        openmpi-bin \
+        gfortran
+
+# Install scipion WORKDIR "/home"
 WORKDIR "/home"
-RUN git clone https://github.com/I2PC/scipion.git
+RUN wget http://scipion.cnb.csic.es/m/static/install/scipion_v1.0.1_2016-06-30_linux64.tgz
+RUN tar -xvzf scipion_v1.0.1_2016-06-30_linux64.tgz
 WORKDIR "/home/scipion"
 RUN ./scipion config
+RUN rm -rf sofware/tmp/*
+RUN rm -rf sofware/em/*.tgz
+
+# Export Path to allow running scipion 
+RUN export PATH=$PATH:/home/scipion/
+CMD ["/bin/bash"]
+
+
