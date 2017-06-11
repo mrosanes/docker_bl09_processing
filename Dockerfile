@@ -1,11 +1,13 @@
-FROM mrosanes/docker_bl09_processing:scipion_dependencies_to_compile
+FROM mrosanes/docker_bl09_processing:checkout_scipion_code
 
-# Checkout scipion code and configure scipion
-WORKDIR "/home"
-RUN git clone https://github.com/I2PC/scipion.git
-WORKDIR "/home/scipion"
-RUN ./scipion config
+RUN ./scipion install -j 4
+RUN rm -rf sofware/tmp/*
+RUN rm -rf sofware/em/*.tgz
+WORKDIR "/"
 
+# Export Path to allow running scipion
+RUN export PATH=$PATH:/home/scipion/
 
+CMD ["/bin/bash"]
 
 
