@@ -2,10 +2,11 @@ FROM debian:stable
 
 # Install important packages 
 RUN apt-get update && apt-get install --fix-missing -y \ 
-        python-numpy \ 
-        python-h5py \ 
-        python-nxs \ 
-        ipython \ 
+        python-numpy \
+        python-h5py \
+        python-nxs \
+        python-setuptools \
+        ipython \
         vim \
         git \
         wget \
